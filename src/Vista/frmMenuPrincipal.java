@@ -24,6 +24,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
      */
     public frmMenuPrincipal() {      
         initComponents();
+        System.out.println(" entro al formulario principal");
          lblinfFupas.setText("NRO. DE FUPAS DISPONIBLES: "+frmMenuPrincipal.cupos);  
     }
 
