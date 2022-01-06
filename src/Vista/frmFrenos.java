@@ -31,6 +31,7 @@ public class frmFrenos extends javax.swing.JFrame {
      */
     public frmFrenos() {
         initComponents();
+        System.out.println("entro al amarillo de motos");
          aplicFupa = false;
         CValidaciones.validarCamposNumeros(pnlFrenos);
     }
