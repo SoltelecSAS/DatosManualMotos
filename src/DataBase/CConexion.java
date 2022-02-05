@@ -32,6 +32,7 @@ public class CConexion {
     private Statement stm;
     private ResultSet rs;
     private CachedRowSetImpl crs;
+    public static String Clave;
     private PreparedStatement pstm;
     protected static String baseDatos;
     protected static String ipServidor;
@@ -120,6 +121,9 @@ public class CConexion {
             CConexion.macEquipo = tmpStr.substring(posCut + 1, tmpStr.length());
             String macprueba = tmpStr.substring(posCut + 1, tmpStr.length());
             CConexion.macEquipo = CConexion.macEquipo.trim();
+            tmpStr = Utilidades.deCifrar(br.readLine());
+             posCut = tmpStr.indexOf("&");
+             CConexion.Clave = tmpStr.substring(posCut + 1, tmpStr.length());
             
              CConexion.contadorCupo = consultarA2();
             

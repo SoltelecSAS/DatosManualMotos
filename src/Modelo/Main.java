@@ -38,21 +38,42 @@ public class Main {
                 Process p = null;
                 try {
                     p = Runtime.getRuntime().exec("wmic bios get serialnumber");
-                    
-                   
                     BufferedReader inn = new BufferedReader(new InputStreamReader(p.getInputStream()));
                     inn.readLine();
                     inn.readLine();
                     String line = inn.readLine();
-                    line= line.replace("G", "");
+                    line = line.replace("G", "");
                     System.out.println(" la mac encriptamiento = " + CConexion.macEquipo);
-                      System.out.println("**   **   *** ");
-                      System.out.println(" **" + line.trim()+"**"); 
-
-                      System.out.println("MAC DEL EQUIPO: "+ line + "\n MAC AUTORIZADA: "+ CConexion.macEquipo );
-                   if(!CConexion.macEquipo.equalsIgnoreCase(line.trim())) {
-                     CMensajes.mensajeError("QUE PENA Equipo No Autorizado");
-                        return;
+                    System.out.println("**   **   *** ");
+                   // System.out.println(" la mac del equipo: " + line.trim() + "**");
+                    //System.out.println(" VALOR DE LA CLAVE: " + CConexion.Clave);
+                    System.out.println("****************************");
+                    
+                    if (CConexion.Clave.equalsIgnoreCase("MAC")) {
+                        p = Runtime.getRuntime().exec("getmac");
+                        inn = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                        inn.readLine();                        
+                        inn.readLine();
+                        inn.readLine();
+                        line =  inn.readLine();
+                        line = line.replace("G", "");
+                        int posCut = line.indexOf(" ");
+                        String mac = line.substring(0,posCut);
+                        String macSinEspacio= CConexion.macEquipo.trim();
+                        macSinEspacio = macSinEspacio.replace("-","");
+                        mac= mac.replace("-", "");
+                        //System.out.println("valor de la mac cuando entro al if:"+ mac);
+                       // System.out.println("valor de la mac que tomo del archivo :"+macSinEspacio);
+                        if (!macSinEspacio.equalsIgnoreCase(macSinEspacio)) {
+                            CMensajes.mensajeError("QUE PENA Equipo No Autorizado");
+                            return;
+                        }
+                        
+                    } else {
+                        if (!CConexion.macEquipo.equalsIgnoreCase(line.trim())) {
+                            CMensajes.mensajeError("QUE PENA Equipo No Autorizado");
+                            return;
+                        }
                     }
                 } catch (IOException ex) { }
                 frmLogin login = new frmLogin();

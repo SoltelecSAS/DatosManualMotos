@@ -11,6 +11,7 @@ import java.lang.invoke.MethodHandles;
 import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.xml.transform.sax.SAXSource;
 
 /**
  *
@@ -110,7 +111,7 @@ public class frmLuces extends javax.swing.JFrame {
             {   
                 System.out.println("valor recibido de la medida 2061:" + luces.getIntensidadLuzAlta());
             luces.setIntensidadLuzAltaTer(Float.valueOf(mapMedidas.get(2061)));
-            }   
+            } 
     }
 
     /**
@@ -331,6 +332,7 @@ public class frmLuces extends javax.swing.JFrame {
             {
                 return;
             }
+            System.out.println("voy a guardar luces altas ");
             GuardarAltas(mapMedidas);
             cargarDatos();
             if (luces.guardarDatos(idPrueba, cantidadLuces))  

@@ -63,6 +63,7 @@ public class CmLuces {
 
     public void setIntensidadLuzAlta(float IntensidadLuzAlta) {
         this.IntensidadLuzAlta = IntensidadLuzAlta;
+        System.out.println("valor que tiene la luz alta EN CMLUCES: "+ IntensidadLuzAlta);
     }
 
     public void setIntensidadLuzBaja(float IntensidadLuzBaja) {
@@ -132,9 +133,14 @@ public class CmLuces {
         valorMedidas = new float[(cantidadLuces * 3) +1];
         System.out.println("Taño del arreglo de luces : "+ valorMedidas.length );
         valorMedidas[0] = InclinacionLuz;
-        valorMedidas[1] = IntensidadLuzAlta;
-        valorMedidas[2] = IntensidadLuzBaja;
-        valorMedidas[3] = 0;
+        valorMedidas[1] = IntensidadLuzBaja;
+        valorMedidas[2] = 0;
+        //if(IntensidadLuzAlta != null ){
+        if(IntensidadLuzAlta != 100){
+        valorMedidas[3] = IntensidadLuzAlta;
+        }
+      // }
+        
 
         if (cantidadLuces == 2) {
             valorMedidas[4] = InclinacionLuzSecundaria;
@@ -154,10 +160,13 @@ public class CmLuces {
     private void llenarTipoMedidas() {
         tipoMedidas = new int[(cantidadLuces * 3) + 1];
         tipoMedidas[0] = 2013;//ANGULO LUZ BAJA 1
-        tipoMedidas[1] = 2056;//INTENSIDAD LUZ ALTA 1
-        tipoMedidas[2] = 2014;//INTENSIDAD LUZ BAJA 1 
+        tipoMedidas[1] = 2014;//INTENSIDAD LUZ BAJA 1 
+        tipoMedidas[2] = 2011;//SUMA DE TODAS LAS INTENSIDADES
+        tipoMedidas[3] = 2056;//INTENSIDAD LUZ ALTA 1
         
-        tipoMedidas[3] = 2011;//SUMA DE TODAS LAS INTENSIDADES
+        
+        
+        
 
         if (cantidadLuces == 2) {
             tipoMedidas[4] = 2002;//ANGULO BAJA 2

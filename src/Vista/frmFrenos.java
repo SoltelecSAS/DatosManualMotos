@@ -23,7 +23,7 @@ public class frmFrenos extends javax.swing.JFrame {
 
     private static int idPrueba;
     private static int idHojaPruebas;
-    private CmPruebas pruebas;
+    //private CmPruebas pruebas;
     public static boolean aplicFupa = false;
 
     /**
