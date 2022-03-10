@@ -97,7 +97,7 @@ public class frmLuces extends javax.swing.JFrame {
     }
     
     private void GuardarAltas(Map<Integer, Float> mapMedidas ){
-        if(mapMedidas.get(2056) != null)
+        if(mapMedidas.get(2056) != null )
             {
              luces.setIntensidadLuzAlta(Float.valueOf(mapMedidas.get(2056)));
              System.out.println("valor recibido de la medida 2056:" + luces.getIntensidadLuzAlta());

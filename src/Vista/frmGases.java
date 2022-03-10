@@ -274,6 +274,15 @@ public class frmGases extends javax.swing.JFrame {
         tiemposMotor = frmLogin.getTiemposMotor();
         idHojaPrueba =frmLogin.getIdHojaPruebas();
         CMedidas medias = new CMedidas();
+        
+        txtHC.setEditable(false);
+        txtCO.setEditable(false);
+        txtCO2.setEditable(false);
+        txtO2.setEditable(false);
+        txtRPM.setEditable(false);
+        txtTemperatura.setEditable(false);
+        txtTemperaturaAmbiente.setEditable(false);
+        txtHumedadRelativa.setEditable(false);
             Map<Integer, Float> mapMedidas = medias.buscarMedidas(idHojaPrueba, 8);
             if (tiemposMotor == 4) {
                 txtHC.setText(String.valueOf(mapMedidas.get(8001)));
@@ -307,6 +316,11 @@ public class frmGases extends javax.swing.JFrame {
     private void chFupasMotosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chFupasMotosActionPerformed
         int i = JOptionPane.showOptionDialog(null, "Desea Aplicar Correccion a la Fupa de la Prueba", "Confirmacion de Cambio", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, null, null);
         if (i != JOptionPane.YES_OPTION) {
+            txtHC.setEditable(true);
+        txtCO.setEditable(true);
+        txtCO2.setEditable(true);
+        txtO2.setEditable(true);
+        txtRPM.setEditable(true);
             aplicFupa = false;
             CMedidas medias = new CMedidas();
             Map<Integer, Float> mapMedidas = medias.buscarMedidas(idHojaPrueba, 8);

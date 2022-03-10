@@ -47,6 +47,7 @@ public class CmLuces {
 
     private float[] valorMedidas;
     private int[] tipoMedidas;
+    
     private int cantidadLuces;
     private List<Integer> defectos;
     private String aprobada;
@@ -158,15 +159,11 @@ public class CmLuces {
     }
 
     private void llenarTipoMedidas() {
-        tipoMedidas = new int[(cantidadLuces * 3) + 1];
+        tipoMedidas = new int[(cantidadLuces * 3) + 1];        
         tipoMedidas[0] = 2013;//ANGULO LUZ BAJA 1
         tipoMedidas[1] = 2014;//INTENSIDAD LUZ BAJA 1 
         tipoMedidas[2] = 2011;//SUMA DE TODAS LAS INTENSIDADES
         tipoMedidas[3] = 2056;//INTENSIDAD LUZ ALTA 1
-        
-        
-        
-        
 
         if (cantidadLuces == 2) {
             tipoMedidas[4] = 2002;//ANGULO BAJA 2

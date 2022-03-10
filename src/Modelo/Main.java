@@ -43,7 +43,7 @@ public class Main {
                     inn.readLine();
                     String line = inn.readLine();
                     line = line.replace("G", "");
-                    System.out.println(" la mac encriptamiento = " + CConexion.macEquipo);
+                    //System.out.println(" la mac encriptamiento = " + CConexion.macEquipo);
                     System.out.println("**   **   *** ");
                    // System.out.println(" la mac del equipo: " + line.trim() + "**");
                     //System.out.println(" VALOR DE LA CLAVE: " + CConexion.Clave);

@@ -227,7 +227,7 @@ public void updateA2(Integer cupos) {
         try {
             Class.forName("com.mysql.jdbc.Connection");
             conn = DriverManager.getConnection(URL, CConexion.usuario, CConexion.contrasena);
-           System.out.println(URL + " - "+ CConexion.ipServidor +" - "+ CConexion.contrasena);
+          // System.out.println(URL + " - "+ CConexion.ipServidor +" - "+ CConexion.contrasena);
            // conn = DriverManager.getConnection(URL, "root", "50lt3l3c545");
             
             
