@@ -183,6 +183,7 @@ public class CConexion {
             } finally {
                 cerrarConexion();
             }
+         System.out.println("cantidad de fupas disponibles: "+ cupos );
          return cupos ;
         }
 public void updateA2(Integer cupos) {
