@@ -50,10 +50,12 @@ public class CmGases {
     //Permisibles maximos
     private static double HC_MAXIMO_2_TIEMPOS;
     private static final double CO_MAXIMO_2_TIEMPOS = 4.5;
-    private static final double HC_MAXIMO_4_TIEMPOS = 2000;
-    private static final double CO_MAXIMO_4_TIEMPOS = 4.5;
+    private static final double HC_MAXIMO_4_TIEMPOS = 1600;
+    private static final double CO_MAXIMO_4_TIEMPOS = 3.6; 
     private static final double O2_MAXIMO_2_TIEMPOS = 11;
     private static final double O2_MAXIMO_4_TIEMPOS = 6;
+    private static final double CO_MAXIMO_2_TIEMPO_RESOL_762 = 3.6;
+    private static double HC_MAXIMO_2_TIEMPOS_RESOL_762 = 1600;
 
     public void setHc(float hc) {
         this.hc = hc;
@@ -149,9 +151,9 @@ public class CmGases {
                     aprobada = "N";
                 }
             } else if (modeloVehiculo >= 2010) {
-                HC_MAXIMO_2_TIEMPOS = 2000;
-
-                if (hc > HC_MAXIMO_2_TIEMPOS || co > CO_MAXIMO_2_TIEMPOS) {
+                //-HC_MAXIMO_2_TIEMPOS = 2000;
+                HC_MAXIMO_2_TIEMPOS_RESOL_762 = 1600;    
+                if (hc > HC_MAXIMO_2_TIEMPOS_RESOL_762 || co > CO_MAXIMO_2_TIEMPO_RESOL_762) {
                     aprobada = "N";
                 }
             }
@@ -193,9 +195,9 @@ public class CmGases {
         boolean estado = true;
         boolean guardo;
         this.modeloVehiculo = modeloVehiculo;
-        this.tiemposMotor = tiemposMotor;       
+        this.tiemposMotor = tiemposMotor;
         llenarTipoMedidas();
-        llenarValorMedidas();       
+        llenarValorMedidas();
         //Verificacion de defectos.
         if (!verificarDefectos()) {
             return false;
@@ -224,26 +226,26 @@ public class CmGases {
                     CMensajes.mensajeCorrecto("Disculpe la Operacion no se Ejecuto Complentamente; Consulte al SOPORTE TECNICO (2)");
                     return false;
                 }
-            }            
-            if(trama!=null) {
-               String[] trm = trama.split(";");
-              //regTblAuditoriaSicov(tramaAuditoria, 1, 1, idPrueba, trm[0], Integer.parseInt(trm[1]));
-            }           
+            }
+            if (trama != null) {
+                String[] trm = trama.split(";");
+                //regTblAuditoriaSicov(tramaAuditoria, 1, 1, idPrueba, trm[0], Integer.parseInt(trm[1]));
+            }
             Boolean reg;
-            int e=0;
+            int e = 0;
             if (frmGases.aplicFupa == true) {
                 reg = regCuponTest();
-                e=1;
+                e = 1;
             } else {
                 reg = true;
             }
             if (reg == true) {
-                if(e==0){
-                    CMensajes.mensajeCorrecto("Se Agrego Correctamente sin Consumo FUPA"); 
-                }else{
-                     CMensajes.mensajeCorrecto("Se Agrego Correctamente con Consumo FUPA");
+                if (e == 0) {
+                    CMensajes.mensajeCorrecto("Se Agrego Correctamente sin Consumo FUPA");
+                } else {
+                    CMensajes.mensajeCorrecto("Se Agrego Correctamente con Consumo FUPA");
                 }
-               
+
             } else {
                 CMensajes.mensajeCorrecto("Disculpe la Operacion no se Ejecuto Complentamente; Consulte al SOPORTE TECNICO (4)");
             }
@@ -334,5 +336,5 @@ public class CmGases {
             return false;
         }
         return true;
-    }    
+    }
 }
